@@ -11,7 +11,8 @@
 (function ($) {
     $(document).ready(function() {
 
-        $('.xzoom').xzoom();
+        //Initialization with one class name
+        $(".xzoom").xzoom();
 
     });
 })(jQuery);
@@ -20,11 +21,13 @@
 <body>
     <div style="text-align:center;">
         <div style="border:1px solid #ccc; display:inline-block; line-height:0;">
+            <!-- First image by class name "xzoom" will be used as main source image -->
             <img class="xzoom" src="gallery/preview/01_b_car.jpg" xoriginal="gallery/original/01_b_car.jpg" />
         </div>
         
         <div style="margin-top:10px">
             <a href="gallery/original/01_b_car.jpg" style="display: inline-block;">
+                <!-- Starting from second image all images will be used as thumbnails -->
                 <img class="xzoom" width="68" src="gallery/thumbs/01_b_car.jpg" xpreview="gallery/preview/01_b_car.jpg" />
             </a>
 
