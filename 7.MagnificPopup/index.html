@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>xZoom</title>
+<link type="text/css" rel="stylesheet" media="all" href="https://unpkg.com/xzoom/dist/xzoom.css" />
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+<!-- Add Magnific Popup -->
+<link rel="stylesheet" href="magnificpopup/dist/magnific-popup.css" />
+<script src="magnificpopup/dist/jquery.magnific-popup.min.js"></script>
+
+<script type="text/javascript" src="https://unpkg.com/xzoom/dist/xzoom.min.js"></script>
+<script type="text/javascript">
+(function ($) {
+    $(document).ready(function() {
+
+        //Integration with "Magnific Popup" plugin
+        $(".xzoom, .xzoom-gallery").xzoom();
+
+        $('.xzoom:first').bind('click', function() {
+            var xzoom = $(this).data('xzoom');
+            xzoom.closezoom();
+            var gallery = xzoom.gallery().cgallery;
+            var i, images = new Array();
+            for (i in gallery) {
+                images[i] = {src: gallery[i]};
+            }
+            $.magnificPopup.open({items: images, type:'image', gallery: {enabled: true}});
+            event.preventDefault();
+        });
+    });
+})(jQuery);
+</script>
+</head>
+<body>
+    <div style="text-align:center;">
+        <div style="border:1px solid #ccc; display:inline-block; line-height:0;">
+            <img class="xzoom" src="gallery/preview/01_b_car.jpg" xoriginal="gallery/original/01_b_car.jpg" />
+        </div>
+        
+        <div style="margin-top:10px">
+            <a href="gallery/original/01_b_car.jpg" style="display: inline-block;">
+                <img class="xzoom-gallery" width="68" src="gallery/thumbs/01_b_car.jpg" xpreview="gallery/preview/01_b_car.jpg" />
+            </a>
+
+            <a href="gallery/original/02_o_car.jpg" style="display: inline-block;">
+                <img class="xzoom-gallery" width="68" src="gallery/thumbs/02_o_car.jpg" xpreview="gallery/preview/02_o_car.jpg" />
+            </a>
+
+            <a href="gallery/original/03_r_car.jpg" style="display: inline-block;">
+                <img class="xzoom-gallery" width="68" src="gallery/preview/03_r_car.jpg" />
+            </a>
+
+            <a href="gallery/original/04_g_car.jpg" style="display: inline-block;">
+                <img class="xzoom-gallery" width="68" src="gallery/preview/04_g_car.jpg" />
+            </a>
+        </div>
+    </div>
+</body>
+</html>
