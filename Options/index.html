@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>xZoom</title>
+<link type="text/css" rel="stylesheet" media="all" href="https://unpkg.com/xzoom/dist/xzoom.css" />
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/xzoom/dist/xzoom.min.js"></script>
+<script type="text/javascript">
+(function ($) {
+    $(document).ready(function() {
+
+        /*--------------------------  
+            List of default options:
+
+            position: 'right', //top, left, right, bottom, inside, lens, fullscreen, #ID
+            mposition: 'inside', //inside, fullscreen
+            rootOutput: true,
+            Xoffset: 0,
+            Yoffset: 0,
+            fadeIn: true,
+            fadeTrans: true,
+            fadeOut: false,
+            smooth: true,
+            smoothZoomMove: 3,
+            smoothLensMove: 1,
+            smoothScale: 6,
+            defaultScale: 0, //from -1 to 1, that means -100% till 100% scale
+            scroll: true,
+            tint: false, //'#color'
+            tintOpacity: 0.5,
+            lens: false, //'#color'
+            lensOpacity: 0.5,
+            lensShape: 'box', //'box', 'circle'
+            zoomWidth: 'auto',
+            zoomHeight: 'auto',
+            sourceClass: 'xzoom-source',
+            loadingClass: 'xzoom-loading',
+            lensClass: 'xzoom-lens',
+            zoomClass: 'xzoom-preview',
+            activeClass: 'xactive',
+            hover: false,
+            adaptive: true,
+            lensReverse: false,
+            adaptiveReverse: false,
+            title: false,
+            titleClass: 'xzoom-caption',
+            bg: false //zoom image output as background 
+        -----------------------------*/
+
+        $(".xzoom, .xzoom-gallery").xzoom({Xoffset: 15, tint: "#00ae14", lens: "#ff5230", scroll: false, defaultScale: 0.5});
+
+    });
+})(jQuery);
+</script>
+</head>
+<body>
+    <div style="text-align:center;">
+        <div style="border:1px solid #ccc; display:inline-block; line-height:0;">
+            <img class="xzoom" src="gallery/preview/01_b_car.jpg" xoriginal="gallery/original/01_b_car.jpg" />
+        </div>
+        
+        <div style="margin-top:10px">
+            <a href="gallery/original/01_b_car.jpg" style="display: inline-block;">
+                <img class="xzoom-gallery" width="68" src="gallery/thumbs/01_b_car.jpg" xpreview="gallery/preview/01_b_car.jpg" />
+            </a>
+
+            <a href="gallery/original/02_o_car.jpg" style="display: inline-block;">
+                <img class="xzoom-gallery" width="68" src="gallery/thumbs/02_o_car.jpg" xpreview="gallery/preview/02_o_car.jpg" />
+            </a>
+
+            <a href="gallery/original/03_r_car.jpg" style="display: inline-block;">
+                <img class="xzoom-gallery" width="68" src="gallery/preview/03_r_car.jpg" />
+            </a>
+
+            <a href="gallery/original/04_g_car.jpg" style="display: inline-block;">
+                <img class="xzoom-gallery" width="68" src="gallery/preview/04_g_car.jpg" />
+            </a>
+        </div>
+    </div>
+</body>
+</html>
