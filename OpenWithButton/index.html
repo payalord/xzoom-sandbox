@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>xZoom</title>
+<link type="text/css" rel="stylesheet" media="all" href="https://unpkg.com/xzoom/dist/xzoom.css" />
+
+<style>
+.mainblock {
+    position:relative;
+    border:1px solid #ccc;
+    display:inline-block;
+    line-height: 0;
+}
+.openzoom {
+    position:absolute;
+    bottom:5px;
+    right:5px;
+}
+</style>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/xzoom/dist/xzoom.min.js"></script>
+<script type="text/javascript">
+(function ($) {
+    $(document).ready(function() {
+
+        //Open zoom with button example
+        //Before we start make sure with CSS, that button is inside operating area (not outside of main image borders)
+        
+        var instance = $('.xzoom, .xzoom-gallery').xzoom({ position: 'lens', lensShape: 'circle', zoomWidth: '500', zoomHeight: '500' });
+        
+        //Take mouseenter event off the image, so no open will happens on mouseenter anymore
+        $('.xzoom').xoff('mouseenter');
+        
+        //Open zoom on button click
+        $('.openzoom').click(function(event) {
+            instance.openzoom(event);
+        });
+
+    });
+})(jQuery);
+</script>
+</head>
+<body>
+    <div style="text-align:center;">
+        <div class="mainblock">
+            <img class="xzoom" src="gallery/preview/01_b_car.jpg" xoriginal="gallery/original/01_b_car.jpg" />
+            <button class="openzoom">Open Zoom</button>
+        </div>
+        
+        <div style="margin-top:10px">
+            <a href="gallery/original/01_b_car.jpg" style="display: inline-block;">
+                <img class="xzoom-gallery" width="68" src="gallery/thumbs/01_b_car.jpg" xpreview="gallery/preview/01_b_car.jpg" />
+            </a>
+
+            <a href="gallery/original/02_o_car.jpg" style="display: inline-block;">
+                <img class="xzoom-gallery" width="68" src="gallery/thumbs/02_o_car.jpg" xpreview="gallery/preview/02_o_car.jpg" />
+            </a>
+
+            <a href="gallery/original/03_r_car.jpg" style="display: inline-block;">
+                <img class="xzoom-gallery" width="68" src="gallery/preview/03_r_car.jpg" />
+            </a>
+
+            <a href="gallery/original/04_g_car.jpg" style="display: inline-block;">
+                <img class="xzoom-gallery" width="68" src="gallery/preview/04_g_car.jpg" />
+            </a>
+        </div>
+    </div>
+</body>
+</html>
