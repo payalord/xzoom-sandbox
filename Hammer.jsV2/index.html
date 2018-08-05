@@ -33,11 +33,11 @@ img.xzoom {
                 event.pageY = event.srcEvent.pageY;
 
                 xzoom.eventmove = function(element) {
-                    var mc2 = new Hammer(element[0]);
-
-                    mc2.get('pan').set({
-                        direction: Hammer.DIRECTION_ALL,
-                        touchAction: 'none'
+                    var mc2 = new Hammer.Manager(element[0], {
+                    	touchAction: 'none',
+                    	recognizers: [
+                    		[Hammer.Pan, { direction: Hammer.DIRECTION_ALL }]
+                    	]
                     });
 
                     mc2.on('pan', function(event) {console.log(event)
