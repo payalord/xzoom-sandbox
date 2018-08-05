@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<title>xZoom</title>
+<link type="text/css" rel="stylesheet" media="all" href="https://unpkg.com/xzoom/dist/xzoom.css" />
+<style>
+img.xzoom {
+	max-width: 100%
+}
+</style>
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/xzoom/dist/xzoom.min.js"></script>
+<script type="text/javascript" src="js/hammer.min.js"></script>
+<script type="text/javascript">
+(function ($) {
+    $(document).ready(function() {
+
+        var xzoom = $('.xzoom, .xzoom-gallery').xzoom({zoomWidth: 400, title: true, tint: '#333', Xoffset: 15});
+
+        //HammerJS v2.0.8
+        var isTouchSupported = 'ontouchstart' in window;
+
+        if (isTouchSupported) {
+            xzoom.eventunbind();
+            var mc1 = new Hammer($('.xzoom')[0]);
+
+            mc1.on("tap", function(event) { console.log(event);
+                event.pageX = event.srcEvent.pageX;
+                event.pageY = event.srcEvent.pageY;
+
+                xzoom.eventmove = function(element) {
+                    var mc2 = new Hammer(element[0], {
+                        touchAction: 'pan-x pan-y'
+                    });
+
+                    mc2.get('pan').set({
+                        direction: Hammer.DIRECTION_ALL,
+                    });
+
+                    mc2.on('pan', function(event) {console.log(event)
+                        event.pageX = event.srcEvent.pageX;
+                        event.pageY = event.srcEvent.pageY;
+                        xzoom.movezoom(event);
+                        // event.srcEvent.preventDefault();
+                    });
+                }
+
+                xzoom.eventleave = function(element) {
+                    var mc3 = new Hammer(element[0]);
+                    mc3.on('tap', function(event) {
+                        xzoom.closezoom();
+                    });
+                }
+                xzoom.openzoom(event);
+            });
+        }
+
+    });
+})(jQuery);
+</script>
+</head>
+<body>
+    <div style="width:100%; height:400px; text-align: center; background-color: green;">
+    	<h2>Scroll content area, check this example on mobile device</h2>
+    </div>
+    <div style="text-align:center;">
+        <div style="border:1px solid #ccc; display:inline-block; line-height:0;">
+            <img class="xzoom" src="gallery/preview/01_b_car.jpg" xoriginal="gallery/original/01_b_car.jpg" />
+        </div>
+        
+        <div style="margin-top:10px">
+            <a href="gallery/original/01_b_car.jpg" style="display: inline-block;">
+                <img class="xzoom-gallery" width="68" src="gallery/thumbs/01_b_car.jpg" xpreview="gallery/preview/01_b_car.jpg" />
+            </a>
+
+            <a href="gallery/original/02_o_car.jpg" style="display: inline-block;">
+                <img class="xzoom-gallery" width="68" src="gallery/thumbs/02_o_car.jpg" xpreview="gallery/preview/02_o_car.jpg" />
+            </a>
+
+            <a href="gallery/original/03_r_car.jpg" style="display: inline-block;">
+                <img class="xzoom-gallery" width="68" src="gallery/preview/03_r_car.jpg" />
+            </a>
+
+            <a href="gallery/original/04_g_car.jpg" style="display: inline-block;">
+                <img class="xzoom-gallery" width="68" src="gallery/preview/04_g_car.jpg" />
+            </a>
+        </div>
+    </div>
+</body>
+</html>
