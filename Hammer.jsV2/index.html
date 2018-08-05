@@ -28,7 +28,7 @@ img.xzoom {
             xzoom.eventunbind();
             var mc1 = new Hammer($('.xzoom')[0]);
 
-            mc1.on("tap", function(event) { console.log(event);
+            mc1.on("tap", function(event) {
                 event.pageX = event.srcEvent.pageX;
                 event.pageY = event.srcEvent.pageY;
 
@@ -43,7 +43,7 @@ img.xzoom {
                         direction: Hammer.DIRECTION_ALL,
                     });
 
-                    mc2.on('pan', function(event) {console.log(event)
+                    mc2.on('pan', function(event) {
                         event.pageX = event.srcEvent.pageX;
                         event.pageY = event.srcEvent.pageY;
                         xzoom.movezoom(event);
