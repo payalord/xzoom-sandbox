@@ -39,6 +39,7 @@ img.xzoom {
 
                     mc2.get('pan').set({
                         direction: Hammer.DIRECTION_ALL,
+                        touchAction: 'pan-x'
                     });
 
                     mc2.on('pan', function(event) {console.log(event)
