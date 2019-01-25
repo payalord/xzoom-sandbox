@@ -22,6 +22,10 @@ This repository is collection of examples for [xZoom jQuery Zoom Gallery Plugin]
 * [Options](Options)
 * [ThumbsFirst](ThumbsFirst)
 
+## jQuery compatibility test
+[3.1.1](jQuery/3.1.1)
+[3.3.1](jQuery/3.3.1)
+
 ## License
 
 [MIT License](LICENSE)
