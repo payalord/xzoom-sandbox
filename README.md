@@ -21,6 +21,7 @@ This repository is collection of examples for [xZoom jQuery Zoom Gallery Plugin]
 * [OpenWithButton](OpenWithButton)
 * [Options](Options)
 * [PreserveScale](PreserveScale)
+* [RealDestroy](RealDestroy)
 * [ThumbsFirst](ThumbsFirst)
 * [ThumbsFirstHammerMagnific](ThumbsFirstHammerMagnific)
 
