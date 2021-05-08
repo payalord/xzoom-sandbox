@@ -50,7 +50,11 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      $(".xzoom, .xzoom-gallery").xzoom(this.options);
+      if (this.images.length > 1) {
+        $(".xzoom, .xzoom-gallery").xzoom(this.options);
+      } else if (this.images.length == 1) {
+        $(".xzoom").xzoom(this.options);
+      }
     });
   },
 };
