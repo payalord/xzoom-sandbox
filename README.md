@@ -8,6 +8,7 @@ This repository is collection of examples for [xZoom jQuery Zoom Gallery Plugin]
 * [CloseIssueMultipleZooms](CloseIssueMultipleZooms)
 * [CustomScale](CustomScale)
 * [DefaultScale](DefaultScale)
+* [DifferentImageSizes](DifferentImageSizes)
 * [FancyBoxVersion2](FancyBoxVersion2)
 * [FancyBoxVersion3](FancyBoxVersion3)
 * [Hammer.jsV2](Hammer.jsV2)
