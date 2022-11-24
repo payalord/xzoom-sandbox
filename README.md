@@ -21,10 +21,12 @@ This repository is collection of examples for [xZoom jQuery Zoom Gallery Plugin]
 * [OnlyOriginal](OnlyOriginal)
 * [OpenWithButton](OpenWithButton)
 * [Options](Options)
+* [Popup](Popup)
 * [PreserveScale](PreserveScale)
 * [RealDestroy](RealDestroy)
 * [ThumbsFirst](ThumbsFirst)
 * [ThumbsFirstHammerMagnific](ThumbsFirstHammerMagnific)
+* [vue3](vue3)
 
 ## jQuery compatibility test
 * [3.1.1](jQuery/3.1.1)

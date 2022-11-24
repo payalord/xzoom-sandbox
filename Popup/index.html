@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>xZoom</title>
+<link type="text/css" rel="stylesheet" media="all" href="https://unpkg.com/xzoom/dist/xzoom.css" />
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/xzoom/dist/xzoom.min.js"></script>
+<script type="text/javascript">
+(function ($) {
+    $(document).ready(function() {
+
+        // Scaled image popup imitation
+        $(".xzoom-gallery").each(function() {
+            var mobj = $(this);
+            var instance = mobj.xzoom({
+                position: 'right',
+                zoomWidth: 500,
+                zoomHeight:500,
+                scroll: false,
+                Xoffset: 10,
+                defaultScale: 1
+            });
+
+            // Fix zoom closing on mouse out of thumb image
+            var mw = mobj.width(), mh = mobj.height();
+            $(window).mousemove(function(event){
+                var mx = event.pageX, my = event.pageY, moffset = mobj.offset(), mtop = moffset.top, mleft = moffset.left;
+                if (mx < mleft - 1 || mx > mleft + mw + 1 || my < mtop - 1 || my > mtop + mh + 1) instance.closezoom();
+            });
+        });
+
+    });
+})(jQuery);
+</script>
+</head>
+<body>
+    <div style="text-align:center;">
+        <div style="margin-top:10px">
+            <p>
+                <img class="xzoom-gallery" width="100" src="gallery/thumbs/01_b_car.jpg" xoriginal="gallery/original/01_b_car.jpg" />
+            </p>
+            <p>
+                <img class="xzoom-gallery" width="100" src="gallery/thumbs/02_o_car.jpg" xoriginal="gallery/original/02_o_car.jpg" />
+            </p>  
+            <p>
+                <img class="xzoom-gallery" width="100" src="gallery/preview/03_r_car.jpg" xoriginal="gallery/original/03_r_car.jpg" />
+            </p>
+            <p>
+                <img class="xzoom-gallery" width="100" src="gallery/preview/04_g_car.jpg" xoriginal="gallery/original/04_g_car.jpg" />
+            </p>
+        </div>
+    </div>
+</body>
+</html>
